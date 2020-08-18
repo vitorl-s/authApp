@@ -2,7 +2,7 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
-import { useSelector, Provider } from 'react-redux';
+import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import SignUp from '../pages/SignUp/index';
 import Login from '../pages/Login/index';
@@ -13,7 +13,7 @@ const AuthStack = createStackNavigator();
 const AuthRoutes = () => {
   return (
     <AuthStack.Navigator>
-      <AuthStack.Screen name="Login" component={Login} />
+      <AuthStack.Screen name="Login" component={Login} options={{headerShown: false}}/>
       <AuthStack.Screen name="SignUp" component={SignUp} />
     </AuthStack.Navigator>
   );

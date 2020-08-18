@@ -24,7 +24,9 @@
     "react-native-screens": "^2.10.1",
     "react-redux": "^7.2.1",
     "redux": "^4.0.5",
-    "redux-persist": "^6.0.0"
+    "redux-persist": "^6.0.0",
+    "styled-components": "^5.1.1",
+    "styled-components-modifiers": "^1.2.5"
   },
   "devDependencies": {
     "@babel/core": "^7.11.1",
