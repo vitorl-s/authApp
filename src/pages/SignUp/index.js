@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {
-  Image,
-  TouchableOpacity,
   KeyboardAvoidingView,
   Platform,
-  View,
   Alert,
 } from 'react-native';
 import auth from '@react-native-firebase/auth';
@@ -16,7 +13,6 @@ import pattern from '../../utils/emailRegex';
 
 const SignUp = ({ navigation }) => {
   const [email, setEmail] = useState('');
-  const [loading, setLoading] = useState(false);
   const [password, setPassword] = useState('');
   const [passwordConfirmation, setPasswordConfirmation] = useState('');
   const [isValid, setIsValid] = useState(true);
@@ -40,12 +36,11 @@ const SignUp = ({ navigation }) => {
         .createUserWithEmailAndPassword(email, password)
         .catch(error => {
           if (error.code === 'auth/email-already-in-use') {
-            console.log('That email address is already in use!');
+            Alert.alert('Esse email já está em uso');
           }
           if (error.code === 'auth/invalid-email') {
-            console.log('That email address is invalid!');
+            Alert.alert('Email inválido');
           }
-          console.error(error);
         });
     }
   };
@@ -85,46 +80,19 @@ const SignUp = ({ navigation }) => {
         {!isValidPassword && (
           <Text modifiers="danger">As senhas não conferem</Text>
         )}
-        <TouchableOpacity
+        <Button
           onPress={() => navigation.navigate('Login')}
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'flex-end',
-            marginTop: 15,
-          }}
+          modifiers="noBorderButton"
         >
           <Text modifiers="underline">Já tem uma conta?</Text>
-        </TouchableOpacity>
+        </Button>
         <Button
-          style={{ marginTop: 25 }}
+          modifiers="commonButton"
           onPress={() => handleRegisterButton()}
-          disabled={loading}
         >
-          <Text style={{ fontSize: 18 }}>Cadastrar</Text>
+          <Text modifiers="buttonText">Cadastrar</Text>
         </Button>
       </KeyboardAvoidingView>
-      <View>
-        <Text
-          modifiers="bold"
-          style={{
-            textAlign: 'center',
-          }}
-        >
-          Continuar com:
-        </Text>
-        <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'center',
-            marginTop: 10,
-          }}
-        >
-          <Button modifiers="login">
-          </Button>
-          <Button modifiers="login" style={{ marginLeft: 20 }}>
-          </Button>
-        </View>
-      </View>
     </Container>
   );
 };

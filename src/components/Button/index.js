@@ -9,6 +9,15 @@ const MODIFIERS = {
     height: 64px;
     border-radius: 24px;
   `,
+  commonButton: () => `
+    margin-top:25px;
+  `,
+  noBorderButton: () => `
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-top: 15px;
+    background-color: ${Colors.Background};
+  `,
 };
 
 const Button = styled.TouchableOpacity`

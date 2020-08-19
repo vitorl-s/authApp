@@ -1,8 +1,6 @@
 /* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
 import {
-  TouchableOpacity,
-  View,
   KeyboardAvoidingView,
   Platform,
   Alert,
@@ -14,24 +12,31 @@ import { Button } from '../../components/Button/index';
 import { InputComponent } from '../../components/Input/index';
 import { Text } from '../../components/Text/index';
 import { SaveToken } from '../../redux/actions/auth';
+import pattern from '../../utils/emailRegex';
 
 
 export default function Login({ navigation }) {
   const [email, setEmail] = useState('');
-  const [loading, setLoading] = useState(false);
   const [password, setPassword] = useState('');
   const [isValid, setIsValid] = useState(true);
   const dispatch = useDispatch();
 
   useEffect(() => {
+    if (pattern.test(String(email).toLowerCase()) || !email.length)
+      setIsValid(true);
+    else setIsValid(false);
   }, [email]);
 
   const handleLoginButton = async () => {
-    const authData = await auth().signInWithEmailAndPassword(email, password).catch(() => { 
-      Alert.alert('Email', 'Credenciais incorretas', [{text: 'entendido'}]);
-    })
-    const token = await authData.user.getIdToken();
-    await dispatch(SaveToken(token));
+    if(email && password){
+      const authData = await auth().signInWithEmailAndPassword(email, password).catch(() => { 
+        Alert.alert('Email', 'Credenciais incorretas, tente novamente', [{text: 'entendido'}]);
+      })
+      const token = await authData.user.getIdToken();
+      await dispatch(SaveToken(token));
+    } else {
+      Alert.alert('Preencha todos os campos antes de fazer o login')
+    }
   };
 
   return (
@@ -60,48 +65,21 @@ export default function Login({ navigation }) {
           autoCorrect={false}
           value={password}
         />
-        <TouchableOpacity
+        <Button
           onPress={() => navigation.navigate('SignUp')}
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'flex-end',
-            marginTop: 15,
-          }}
+          modifiers="noBorderButton"
         >
           <Text modifiers="underline">Não tem conta? Cadastre-se</Text>
-        </TouchableOpacity>
+        </Button>
         <Button
-          style={{ marginTop: 25 }}
+          modifiers="commonButton"
           onPress={() => {
             handleLoginButton();
           }}
-          disabled={loading}
         >
-          <Text style={{ fontSize: 18 }}>Login</Text>
+          <Text modifiers="buttonText">Login</Text>
         </Button>
       </KeyboardAvoidingView>
-      <View>
-        <Text
-          modifiers="bold"
-          style={{
-            textAlign: 'center',
-          }}
-        >
-          Continuar com:
-        </Text>
-        <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'center',
-            marginTop: 10,
-          }}
-        >
-          <Button modifiers="login">
-          </Button>
-          <Button modifiers="login" style={{ marginLeft: 20 }}>
-          </Button>
-        </View>
-      </View>
     </Container>
   );
 }

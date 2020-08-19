@@ -14,6 +14,14 @@ const MODIFIERS = {
     font-weight: bold;
     text-decoration: underline;
   `,
+  buttonText: () => `
+    font-size:18px;
+  `,
+  title: () => `
+    font-size:24px;
+    align-self:center;
+    font-weight: bold;
+  `,
 };
 
 export const Text = styled.Text`
