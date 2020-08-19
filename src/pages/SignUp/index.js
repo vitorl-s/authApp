@@ -30,10 +30,14 @@ const SignUp = ({ navigation }) => {
     else setIsValidPassword(false);
   }, [passwordConfirmation, password]);
 
-  const handleRegisterButton = async () => {
+  const handleRegisterButton = () => {
     if(setIsValid && setIsValidPassword) {
       auth()
         .createUserWithEmailAndPassword(email, password)
+        .then(() => {
+          Alert.alert('Cadastro feito com sucesso');
+          navigation.navigate('Login')
+        })
         .catch(error => {
           if (error.code === 'auth/email-already-in-use') {
             Alert.alert('Esse email já está em uso');
@@ -55,6 +59,7 @@ const SignUp = ({ navigation }) => {
           onChangeText={(txt) => setEmail(txt)}
           value={email}
           label="Email"
+          autoCapitalize="none"
           autoCorrect={false}
           keyboardType="email-address"
         />

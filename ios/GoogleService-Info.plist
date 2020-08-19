@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>941405381671-906hanese78gt4f2vgfhmg8n8n23gdhi.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.941405381671-906hanese78gt4f2vgfhmg8n8n23gdhi</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>941405381671-ldc0mho597it4joog9kn9dp36dfifeov.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBXfAKy0mIJjIP_6bz6QRapwPPJeQRglOY</string>
+	<key>GCM_SENDER_ID</key>
+	<string>941405381671</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>org.reactjs.native.example.authApp</string>
+	<key>PROJECT_ID</key>
+	<string>authapp-8ed20</string>
+	<key>STORAGE_BUCKET</key>
+	<string>authapp-8ed20.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:941405381671:ios:6208788b4f61d215d69a02</string>
+	<key>DATABASE_URL</key>
+	<string>https://authapp-8ed20.firebaseio.com</string>
+</dict>
+</plist>

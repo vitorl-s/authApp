@@ -13,6 +13,7 @@ const MODIFIERS = {
   underline: () => `
     font-weight: bold;
     text-decoration: underline;
+    text-decoration-color : ${Colors.Text}
   `,
   buttonText: () => `
     font-size:18px;
