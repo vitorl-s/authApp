@@ -17,11 +17,13 @@ export function InputComponent(props) {
       setIsFocused(true);
       Animated.timing(posAnim, {
         toValue: 10,
-        duration: 150,
+        duration: 100,
+        useNativeDriver: false,
       }).start();
       Animated.timing(sizeAnim, {
         toValue: 11,
-        duration: 150,
+        duration: 100,
+        useNativeDriver: false,
       }).start();
     }
   }
@@ -31,11 +33,13 @@ export function InputComponent(props) {
       setIsFocused(false);
       Animated.timing(posAnim, {
         toValue: 29,
-        duration: 150,
+        duration: 100,
+        useNativeDriver: false,
       }).start();
       Animated.timing(sizeAnim, {
         toValue: 14,
-        duration: 150,
+        duration: 100,
+        useNativeDriver: false,
       }).start();
     }
   }

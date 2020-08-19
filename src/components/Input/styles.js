@@ -12,7 +12,7 @@ const InputComp = styled.View`
   margin: 5px 0;
   background-color: ${Colors.SecondaryColor};
   border-radius: 4px;
-  padding: 16px 0;
+  padding: 10px 0;
 
   ${applyStyleModifiers(MODIFIERS)}
 `;
@@ -20,7 +20,7 @@ const InputComp = styled.View`
 InputComp.InputText = styled.TextInput`
   font-size: 20px;
   color: ${Colors.Text};
-  height: 26px;
+  height: 45px;
   margin: 10px 20px;
 `;
 

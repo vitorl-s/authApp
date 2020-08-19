@@ -1,19 +1,19 @@
 /* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
 import {
-  Image,
   TouchableOpacity,
   View,
   KeyboardAvoidingView,
   Platform,
   Alert,
-  ActivityIndicator,
 } from 'react-native';
 import { useDispatch } from 'react-redux';
+import auth from '@react-native-firebase/auth';
 import { Container } from '../../components/Container/index';
 import { Button } from '../../components/Button/index';
 import { InputComponent } from '../../components/Input/index';
 import { Text } from '../../components/Text/index';
+import { SaveToken } from '../../redux/actions/auth';
 
 
 export default function Login({ navigation }) {
@@ -21,11 +21,17 @@ export default function Login({ navigation }) {
   const [loading, setLoading] = useState(false);
   const [password, setPassword] = useState('');
   const [isValid, setIsValid] = useState(true);
+  const dispatch = useDispatch();
 
   useEffect(() => {
   }, [email]);
 
   const handleLoginButton = async () => {
+    const authData = await auth().signInWithEmailAndPassword(email, password).catch(() => { 
+      Alert.alert('Email', 'Credenciais incorretas', [{text: 'entendido'}]);
+    })
+    const token = await authData.user.getIdToken();
+    await dispatch(SaveToken(token));
   };
 
   return (
@@ -62,7 +68,7 @@ export default function Login({ navigation }) {
             marginTop: 15,
           }}
         >
-          <Text modifiers="bold">Não tem conta? Cadastre-se</Text>
+          <Text modifiers="underline">Não tem conta? Cadastre-se</Text>
         </TouchableOpacity>
         <Button
           style={{ marginTop: 25 }}

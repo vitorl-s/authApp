@@ -10,6 +10,10 @@ const MODIFIERS = {
   danger: () => `
     color: ${Colors.Error};
   `,
+  underline: () => `
+    font-weight: bold;
+    text-decoration: underline;
+  `,
 };
 
 export const Text = styled.Text`
