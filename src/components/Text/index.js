@@ -19,14 +19,13 @@ const MODIFIERS = {
     font-size:18px;
   `,
   title: () => `
-    font-size:24px;
+    font-size:18px;
     align-self:center;
-    font-weight: bold;
   `,
 };
 
 export const Text = styled.Text`
-  font-size: 14px;
+  font-size: 12px;
   color: ${Colors.Text};
 
   ${applyStyleModifiers(MODIFIERS)}
