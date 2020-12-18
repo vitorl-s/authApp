@@ -4,8 +4,10 @@ import { Container } from '../../components/Container/index';
 import { Button } from '../../components/Button/index';
 import { Text } from '../../components/Text/index';
 import PushNotification from "react-native-push-notification";
+import { LogBox } from 'react-native';
 
 const Contact = () => {
+  LogBox.ignoreAllLogs();
   const [msg, setMsg] = useState();
   const [selectedValue, setSelectedValue] = useState("java");
   const localNotif = () => {
