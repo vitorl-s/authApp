@@ -4,6 +4,7 @@ import {
   KeyboardAvoidingView,
   Platform,
   Alert,
+  LogBox,
 } from 'react-native';
 import { useDispatch } from 'react-redux';
 import auth from '@react-native-firebase/auth';
@@ -16,6 +17,7 @@ import pattern from '../../utils/emailRegex';
 
 
 export default function Login({ navigation }) {
+  LogBox.ignoreAllLogs();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isValid, setIsValid] = useState(true);

@@ -10,6 +10,11 @@
       android:roundIcon="@mipmap/ic_launcher_round"
       android:allowBackup="false"
       android:theme="@style/AppTheme">
+      <meta-data  android:name="com.dieam.reactnativepushnotification.notification_foreground"
+        android:value="true"/>
+      <meta-data
+        android:name="com.dieam.reactnativepushnotification.default_notification_channel_id"
+        android:value="default-channel-id" />
       <activity
         android:name=".MainActivity"
         android:label="@string/app_name"

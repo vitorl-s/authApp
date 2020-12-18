@@ -3,6 +3,7 @@ import {
   KeyboardAvoidingView,
   Platform,
   Alert,
+  LogBox,
 } from 'react-native';
 import auth from '@react-native-firebase/auth';
 import { Container } from '../../components/Container/index';
